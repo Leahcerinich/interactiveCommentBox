@@ -1,3 +1,5 @@
+
+// comment.js file
 var Comment = React.createClass({
   rawMarkup: function() {
     var md = new Remarkable();
@@ -17,6 +19,7 @@ var Comment = React.createClass({
   }
 });
 
+// commentBox.js file
 var CommentBox = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -68,6 +71,8 @@ var CommentBox = React.createClass({
   }
 });
 
+
+// commentList.js file
 var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.map(function(comment) {
@@ -85,6 +90,8 @@ var CommentList = React.createClass({
   }
 });
 
+
+//CommentForm file
 var CommentForm = React.createClass({
   getInitialState: function() {
     return {author: '', text: ''};
@@ -99,7 +106,7 @@ var CommentForm = React.createClass({
     e.preventDefault();
     var author = this.state.author.trim();
     var text = this.state.text.trim();
-;    if (!text || !author) {
+    if (!text || !author) {
       return;
     }
     this.props.onCommentSubmit({author: author, text: text});
